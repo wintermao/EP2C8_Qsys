@@ -26,6 +26,10 @@
 #uart	
 	set_location_assignment PIN_21 -to RXD_1
 	set_location_assignment PIN_72 -to TXD_1
+	set_location_assignment PIN_21 -to RXD_2
+	set_location_assignment PIN_72 -to TXD_2
+	set_location_assignment PIN_91 -to RXD_3
+	set_location_assignment PIN_71 -to TXD_3
 #sdram	
 	set_location_assignment PIN_122 -to sdram_ba[0]
 	set_location_assignment PIN_121 -to sdram_ba[1]
@@ -63,13 +67,16 @@
 	set_location_assignment PIN_41 -to sdram_dq[14]
 	set_location_assignment PIN_40 -to sdram_dq[15]
 #led	
-	set_location_assignment PIN_104 -to LEDA
-	set_location_assignment PIN_103 -to LEDB
-	set_location_assignment PIN_101 -to LEDC
-	set_location_assignment PIN_100 -to LEDD
-	set_location_assignment PIN_51 -to LEDE
-	set_location_assignment PIN_63 -to LEDF
-	set_location_assignment PIN_67 -to LEDG
-	set_location_assignment PIN_71 -to LED_0
+	set_location_assignment PIN_104 -to LED[0]
+	set_location_assignment PIN_103 -to LED[1]
+	set_location_assignment PIN_101 -to LED[2]
+	set_location_assignment PIN_100 -to LED[3]
+
+#key	
+	set_location_assignment PIN_89 -to key[0]
+	set_location_assignment PIN_88 -to key[1]
+	set_location_assignment PIN_90 -to key[2]
+
+
 
 

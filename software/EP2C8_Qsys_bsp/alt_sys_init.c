@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2' in SOPC Builder design 'nios2'
  * SOPC Builder design path: D:/altera/project/EP2C8_Qsys/nios2.sopcinfo
  *
- * Generated: Thu Feb 08 11:18:07 CST 2018
+ * Generated: Thu Mar 08 15:14:51 CST 2018
  */
 
 /*
@@ -63,6 +63,7 @@
 #include "altera_avalon_jtag_uart.h"
 #include "altera_avalon_sysid_qsys.h"
 #include "altera_avalon_timer.h"
+#include "altera_avalon_uart.h"
 
 /*
  * Allocate the device storage
@@ -74,6 +75,9 @@ ALTERA_AVALON_JTAG_UART_INSTANCE ( JTAG_UART, jtag_uart);
 ALTERA_AVALON_SYSID_QSYS_INSTANCE ( SYSID, sysid);
 ALTERA_AVALON_TIMER_INSTANCE ( SYSTIMER, systimer);
 ALTERA_AVALON_TIMER_INSTANCE ( TIMESTAMP, timestamp);
+ALTERA_AVALON_UART_INSTANCE ( UART1, uart1);
+ALTERA_AVALON_UART_INSTANCE ( UART2, uart2);
+ALTERA_AVALON_UART_INSTANCE ( UART3, uart3);
 
 /*
  * Initialize the interrupt controller devices
@@ -101,4 +105,7 @@ void alt_sys_init( void )
     ALTERA_AVALON_EPCS_FLASH_CONTROLLER_INIT ( EPCS_FLASH, epcs_flash);
     ALTERA_AVALON_JTAG_UART_INIT ( JTAG_UART, jtag_uart);
     ALTERA_AVALON_SYSID_QSYS_INIT ( SYSID, sysid);
+    ALTERA_AVALON_UART_INIT ( UART1, uart1);
+    ALTERA_AVALON_UART_INIT ( UART2, uart2);
+    ALTERA_AVALON_UART_INIT ( UART3, uart3);
 }
