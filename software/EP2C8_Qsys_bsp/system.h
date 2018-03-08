@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2' in SOPC Builder design 'nios2'
  * SOPC Builder design path: D:/altera/project/EP2C8_Qsys/nios2.sopcinfo
  *
- * Generated: Thu Mar 08 15:14:51 CST 2018
+ * Generated: Thu Mar 08 18:12:10 CST 2018
  */
 
 /*
@@ -133,6 +133,7 @@
 #define __ALTERA_AVALON_UART
 #define __ALTERA_NIOS2_QSYS
 #define __ALTPLL
+#define __OC_I2C_MASTER
 
 
 /*
@@ -151,19 +152,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart"
-#define ALT_STDERR_BASE 0x10040e0
+#define ALT_STDERR_BASE 0x1004100
 #define ALT_STDERR_DEV jtag_uart
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart"
-#define ALT_STDIN_BASE 0x10040e0
+#define ALT_STDIN_BASE 0x1004100
 #define ALT_STDIN_DEV jtag_uart
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart"
-#define ALT_STDOUT_BASE 0x10040e0
+#define ALT_STDOUT_BASE 0x1004100
 #define ALT_STDOUT_DEV jtag_uart
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -176,7 +177,7 @@
  *
  */
 
-#define ALTPLL_BASE 0x10040d0
+#define ALTPLL_BASE 0x10040f0
 #define ALTPLL_IRQ -1
 #define ALTPLL_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define ALTPLL_NAME "/dev/altpll"
@@ -216,7 +217,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart altera_avalon_jtag_uart
-#define JTAG_UART_BASE 0x10040e0
+#define JTAG_UART_BASE 0x1004100
 #define JTAG_UART_IRQ 0
 #define JTAG_UART_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_NAME "/dev/jtag_uart"
@@ -226,6 +227,20 @@
 #define JTAG_UART_TYPE "altera_avalon_jtag_uart"
 #define JTAG_UART_WRITE_DEPTH 64
 #define JTAG_UART_WRITE_THRESHOLD 8
+
+
+/*
+ * oc_i2c_master_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_oc_i2c_master_0 oc_i2c_master
+#define OC_I2C_MASTER_0_BASE 0x1004000
+#define OC_I2C_MASTER_0_IRQ 8
+#define OC_I2C_MASTER_0_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define OC_I2C_MASTER_0_NAME "/dev/oc_i2c_master_0"
+#define OC_I2C_MASTER_0_SPAN 32
+#define OC_I2C_MASTER_0_TYPE "oc_i2c_master"
 
 
 /*
@@ -263,7 +278,7 @@
  */
 
 #define ALT_MODULE_CLASS_pio_key altera_avalon_pio
-#define PIO_KEY_BASE 0x10040c0
+#define PIO_KEY_BASE 0x10040e0
 #define PIO_KEY_BIT_CLEARING_EDGE_REGISTER 1
 #define PIO_KEY_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define PIO_KEY_CAPTURE 1
@@ -290,11 +305,11 @@
  */
 
 #define ALT_MODULE_CLASS_pio_led altera_avalon_pio
-#define PIO_LED_BASE 0x1004000
+#define PIO_LED_BASE 0x1004020
 #define PIO_LED_BIT_CLEARING_EDGE_REGISTER 0
 #define PIO_LED_BIT_MODIFYING_OUTPUT_REGISTER 1
 #define PIO_LED_CAPTURE 0
-#define PIO_LED_DATA_WIDTH 4
+#define PIO_LED_DATA_WIDTH 5
 #define PIO_LED_DO_TEST_BENCH_WIRING 0
 #define PIO_LED_DRIVEN_SIM_VALUE 0
 #define PIO_LED_EDGE_TYPE "NONE"
@@ -356,13 +371,13 @@
  */
 
 #define ALT_MODULE_CLASS_sysid altera_avalon_sysid_qsys
-#define SYSID_BASE 0x10040e8
+#define SYSID_BASE 0x1004108
 #define SYSID_ID 0
 #define SYSID_IRQ -1
 #define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_NAME "/dev/sysid"
 #define SYSID_SPAN 8
-#define SYSID_TIMESTAMP 1520492466
+#define SYSID_TIMESTAMP 1520503844
 #define SYSID_TYPE "altera_avalon_sysid_qsys"
 
 
@@ -373,7 +388,7 @@
 
 #define ALT_MODULE_CLASS_systimer altera_avalon_timer
 #define SYSTIMER_ALWAYS_RUN 0
-#define SYSTIMER_BASE 0x10040a0
+#define SYSTIMER_BASE 0x10040c0
 #define SYSTIMER_COUNTER_SIZE 32
 #define SYSTIMER_FIXED_PERIOD 0
 #define SYSTIMER_FREQ 108000000
@@ -399,7 +414,7 @@
 
 #define ALT_MODULE_CLASS_timestamp altera_avalon_timer
 #define TIMESTAMP_ALWAYS_RUN 0
-#define TIMESTAMP_BASE 0x1004080
+#define TIMESTAMP_BASE 0x10040a0
 #define TIMESTAMP_COUNTER_SIZE 32
 #define TIMESTAMP_FIXED_PERIOD 0
 #define TIMESTAMP_FREQ 108000000
@@ -424,7 +439,7 @@
  */
 
 #define ALT_MODULE_CLASS_uart1 altera_avalon_uart
-#define UART1_BASE 0x1004060
+#define UART1_BASE 0x1004080
 #define UART1_BAUD 115200
 #define UART1_DATA_BITS 8
 #define UART1_FIXED_BAUD 1
@@ -449,7 +464,7 @@
  */
 
 #define ALT_MODULE_CLASS_uart2 altera_avalon_uart
-#define UART2_BASE 0x1004040
+#define UART2_BASE 0x1004060
 #define UART2_BAUD 115200
 #define UART2_DATA_BITS 8
 #define UART2_FIXED_BAUD 1
@@ -474,7 +489,7 @@
  */
 
 #define ALT_MODULE_CLASS_uart3 altera_avalon_uart
-#define UART3_BASE 0x1004020
+#define UART3_BASE 0x1004040
 #define UART3_BAUD 115200
 #define UART3_DATA_BITS 8
 #define UART3_FIXED_BAUD 1

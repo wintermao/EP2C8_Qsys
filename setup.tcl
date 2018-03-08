@@ -24,8 +24,8 @@
 	set_location_assignment PIN_129 -to SDA_MASTER
 	set_location_assignment PIN_112 -to SCL_MASTER
 #uart	
-	set_location_assignment PIN_21 -to RXD_1
-	set_location_assignment PIN_72 -to TXD_1
+	set_location_assignment PIN_69 -to RXD_1
+	set_location_assignment PIN_70 -to TXD_1
 	set_location_assignment PIN_21 -to RXD_2
 	set_location_assignment PIN_72 -to TXD_2
 	set_location_assignment PIN_91 -to RXD_3
@@ -71,11 +71,12 @@
 	set_location_assignment PIN_103 -to LED[1]
 	set_location_assignment PIN_101 -to LED[2]
 	set_location_assignment PIN_100 -to LED[3]
+	set_location_assignment PIN_51 -to LED[4]
 
 #key	
-	set_location_assignment PIN_89 -to key[0]
-	set_location_assignment PIN_88 -to key[1]
-	set_location_assignment PIN_90 -to key[2]
+	set_location_assignment PIN_89 -to KEY[0]
+	set_location_assignment PIN_88 -to KEY[1]
+	set_location_assignment PIN_63 -to KEY[2]
 
 
 

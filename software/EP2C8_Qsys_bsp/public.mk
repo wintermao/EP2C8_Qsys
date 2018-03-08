@@ -147,14 +147,14 @@ SOPC_SYSID_FLAG += --id=0
 ELF_PATCH_FLAG  += --id 0
 
 # The SOPC System ID Base Address 
-# setting SOPC_SYSID_BASE_ADDRESS is 0x10040e8
-SOPC_SYSID_FLAG += --sidp=0x10040e8
-ELF_PATCH_FLAG  += --sidp 0x10040e8
+# setting SOPC_SYSID_BASE_ADDRESS is 0x1004108
+SOPC_SYSID_FLAG += --sidp=0x1004108
+ELF_PATCH_FLAG  += --sidp 0x1004108
 
 # The SOPC Timestamp 
-# setting SOPC_TIMESTAMP is 1520492466
-SOPC_SYSID_FLAG += --timestamp=1520492466
-ELF_PATCH_FLAG  += --timestamp 1520492466
+# setting SOPC_TIMESTAMP is 1520503844
+SOPC_SYSID_FLAG += --timestamp=1520503844
+ELF_PATCH_FLAG  += --timestamp 1520503844
 
 # Enable JTAG UART driver to recover when host is inactive causing buffer to 
 # full without returning error. Printf will not fail with this recovery. none 
@@ -342,6 +342,9 @@ ELF_PATCH_FLAG  += --stdin_dev jtag_uart
 # ALT_STDOUT family of defines in system.h. none 
 # setting hal.stdout is jtag_uart
 ELF_PATCH_FLAG  += --stdout_dev jtag_uart
+
+# Small-footprint (polled mode) driver none 
+# setting oc_i2c_master_driver.enable_small_driver is false
 
 
 #------------------------------------------------------------------------------
