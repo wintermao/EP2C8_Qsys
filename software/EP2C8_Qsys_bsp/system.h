@@ -2,9 +2,9 @@
  * system.h - SOPC Builder system and BSP software package information
  *
  * Machine generated for CPU 'nios2' in SOPC Builder design 'nios2'
- * SOPC Builder design path: D:/altera/project/EP2C8_Qsys/nios2.sopcinfo
+ * SOPC Builder design path: E:/altera/13.0/project/EP2C8_RX_Qsys/nios2.sopcinfo
  *
- * Generated: Thu Mar 08 18:12:10 CST 2018
+ * Generated: Mon Apr 02 07:50:30 CST 2018
  */
 
 /*
@@ -123,6 +123,7 @@
  *
  */
 
+#define __ALTERA_AVALON_DMA
 #define __ALTERA_AVALON_EPCS_FLASH_CONTROLLER
 #define __ALTERA_AVALON_JTAG_UART
 #define __ALTERA_AVALON_NEW_SDRAM_CONTROLLER
@@ -152,19 +153,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart"
-#define ALT_STDERR_BASE 0x1004100
+#define ALT_STDERR_BASE 0x1004120
 #define ALT_STDERR_DEV jtag_uart
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart"
-#define ALT_STDIN_BASE 0x1004100
+#define ALT_STDIN_BASE 0x1004120
 #define ALT_STDIN_DEV jtag_uart
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart"
-#define ALT_STDOUT_BASE 0x1004100
+#define ALT_STDOUT_BASE 0x1004120
 #define ALT_STDOUT_DEV jtag_uart
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -177,13 +178,34 @@
  *
  */
 
-#define ALTPLL_BASE 0x10040f0
+#define ALTPLL_BASE 0x1004110
 #define ALTPLL_IRQ -1
 #define ALTPLL_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define ALTPLL_NAME "/dev/altpll"
 #define ALTPLL_SPAN 16
 #define ALTPLL_TYPE "altpll"
 #define ALT_MODULE_CLASS_altpll altpll
+
+
+/*
+ * dma_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_dma_0 altera_avalon_dma
+#define DMA_0_ALLOW_BYTE_TRANSACTIONS 1
+#define DMA_0_ALLOW_DOUBLEWORD_TRANSACTIONS 1
+#define DMA_0_ALLOW_HW_TRANSACTIONS 1
+#define DMA_0_ALLOW_QUADWORD_TRANSACTIONS 1
+#define DMA_0_ALLOW_WORD_TRANSACTIONS 1
+#define DMA_0_BASE 0x1004000
+#define DMA_0_IRQ 9
+#define DMA_0_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define DMA_0_LENGTHWIDTH 16
+#define DMA_0_MAX_BURST_SIZE 128
+#define DMA_0_NAME "/dev/dma_0"
+#define DMA_0_SPAN 32
+#define DMA_0_TYPE "altera_avalon_dma"
 
 
 /*
@@ -217,7 +239,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart altera_avalon_jtag_uart
-#define JTAG_UART_BASE 0x1004100
+#define JTAG_UART_BASE 0x1004120
 #define JTAG_UART_IRQ 0
 #define JTAG_UART_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_NAME "/dev/jtag_uart"
@@ -235,7 +257,7 @@
  */
 
 #define ALT_MODULE_CLASS_oc_i2c_master_0 oc_i2c_master
-#define OC_I2C_MASTER_0_BASE 0x1004000
+#define OC_I2C_MASTER_0_BASE 0x1004020
 #define OC_I2C_MASTER_0_IRQ 8
 #define OC_I2C_MASTER_0_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define OC_I2C_MASTER_0_NAME "/dev/oc_i2c_master_0"
@@ -273,12 +295,40 @@
 
 
 /*
+ * onchip_ram configuration as viewed by dma_0_read_master
+ *
+ */
+
+#define DMA_0_READ_MASTER_ONCHIP_RAM_ALLOW_IN_SYSTEM_MEMORY_CONTENT_EDITOR 0
+#define DMA_0_READ_MASTER_ONCHIP_RAM_ALLOW_MRAM_SIM_CONTENTS_ONLY_FILE 0
+#define DMA_0_READ_MASTER_ONCHIP_RAM_BASE 0x1001000
+#define DMA_0_READ_MASTER_ONCHIP_RAM_CONTENTS_INFO ""
+#define DMA_0_READ_MASTER_ONCHIP_RAM_DUAL_PORT 0
+#define DMA_0_READ_MASTER_ONCHIP_RAM_GUI_RAM_BLOCK_TYPE "AUTO"
+#define DMA_0_READ_MASTER_ONCHIP_RAM_INIT_CONTENTS_FILE "nios2_onchip_ram"
+#define DMA_0_READ_MASTER_ONCHIP_RAM_INIT_MEM_CONTENT 0
+#define DMA_0_READ_MASTER_ONCHIP_RAM_INSTANCE_ID "NONE"
+#define DMA_0_READ_MASTER_ONCHIP_RAM_IRQ -1
+#define DMA_0_READ_MASTER_ONCHIP_RAM_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define DMA_0_READ_MASTER_ONCHIP_RAM_NAME "/dev/onchip_ram"
+#define DMA_0_READ_MASTER_ONCHIP_RAM_NON_DEFAULT_INIT_FILE_ENABLED 0
+#define DMA_0_READ_MASTER_ONCHIP_RAM_RAM_BLOCK_TYPE "AUTO"
+#define DMA_0_READ_MASTER_ONCHIP_RAM_READ_DURING_WRITE_MODE "DONT_CARE"
+#define DMA_0_READ_MASTER_ONCHIP_RAM_SINGLE_CLOCK_OP 0
+#define DMA_0_READ_MASTER_ONCHIP_RAM_SIZE_MULTIPLE 1
+#define DMA_0_READ_MASTER_ONCHIP_RAM_SIZE_VALUE 4096
+#define DMA_0_READ_MASTER_ONCHIP_RAM_SPAN 4096
+#define DMA_0_READ_MASTER_ONCHIP_RAM_TYPE "altera_avalon_onchip_memory2"
+#define DMA_0_READ_MASTER_ONCHIP_RAM_WRITABLE 1
+
+
+/*
  * pio_key configuration
  *
  */
 
 #define ALT_MODULE_CLASS_pio_key altera_avalon_pio
-#define PIO_KEY_BASE 0x10040e0
+#define PIO_KEY_BASE 0x1004100
 #define PIO_KEY_BIT_CLEARING_EDGE_REGISTER 1
 #define PIO_KEY_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define PIO_KEY_CAPTURE 1
@@ -305,7 +355,7 @@
  */
 
 #define ALT_MODULE_CLASS_pio_led altera_avalon_pio
-#define PIO_LED_BASE 0x1004020
+#define PIO_LED_BASE 0x1004040
 #define PIO_LED_BIT_CLEARING_EDGE_REGISTER 0
 #define PIO_LED_BIT_MODIFYING_OUTPUT_REGISTER 1
 #define PIO_LED_CAPTURE 0
@@ -371,13 +421,13 @@
  */
 
 #define ALT_MODULE_CLASS_sysid altera_avalon_sysid_qsys
-#define SYSID_BASE 0x1004108
+#define SYSID_BASE 0x1004128
 #define SYSID_ID 0
 #define SYSID_IRQ -1
 #define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_NAME "/dev/sysid"
 #define SYSID_SPAN 8
-#define SYSID_TIMESTAMP 1520503844
+#define SYSID_TIMESTAMP 1522626007
 #define SYSID_TYPE "altera_avalon_sysid_qsys"
 
 
@@ -388,7 +438,7 @@
 
 #define ALT_MODULE_CLASS_systimer altera_avalon_timer
 #define SYSTIMER_ALWAYS_RUN 0
-#define SYSTIMER_BASE 0x10040c0
+#define SYSTIMER_BASE 0x10040e0
 #define SYSTIMER_COUNTER_SIZE 32
 #define SYSTIMER_FIXED_PERIOD 0
 #define SYSTIMER_FREQ 108000000
@@ -414,7 +464,7 @@
 
 #define ALT_MODULE_CLASS_timestamp altera_avalon_timer
 #define TIMESTAMP_ALWAYS_RUN 0
-#define TIMESTAMP_BASE 0x10040a0
+#define TIMESTAMP_BASE 0x10040c0
 #define TIMESTAMP_COUNTER_SIZE 32
 #define TIMESTAMP_FIXED_PERIOD 0
 #define TIMESTAMP_FREQ 108000000
@@ -439,7 +489,7 @@
  */
 
 #define ALT_MODULE_CLASS_uart1 altera_avalon_uart
-#define UART1_BASE 0x1004080
+#define UART1_BASE 0x10040a0
 #define UART1_BAUD 115200
 #define UART1_DATA_BITS 8
 #define UART1_FIXED_BAUD 1
@@ -464,7 +514,7 @@
  */
 
 #define ALT_MODULE_CLASS_uart2 altera_avalon_uart
-#define UART2_BASE 0x1004060
+#define UART2_BASE 0x1004080
 #define UART2_BAUD 115200
 #define UART2_DATA_BITS 8
 #define UART2_FIXED_BAUD 1
@@ -484,12 +534,36 @@
 
 
 /*
+ * uart2 configuration as viewed by dma_0_write_master
+ *
+ */
+
+#define DMA_0_WRITE_MASTER_UART2_BASE 0x1004080
+#define DMA_0_WRITE_MASTER_UART2_BAUD 115200
+#define DMA_0_WRITE_MASTER_UART2_DATA_BITS 8
+#define DMA_0_WRITE_MASTER_UART2_FIXED_BAUD 1
+#define DMA_0_WRITE_MASTER_UART2_FREQ 108000000
+#define DMA_0_WRITE_MASTER_UART2_IRQ -1
+#define DMA_0_WRITE_MASTER_UART2_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define DMA_0_WRITE_MASTER_UART2_NAME "/dev/uart2"
+#define DMA_0_WRITE_MASTER_UART2_PARITY 'N'
+#define DMA_0_WRITE_MASTER_UART2_SIM_CHAR_STREAM ""
+#define DMA_0_WRITE_MASTER_UART2_SIM_TRUE_BAUD 0
+#define DMA_0_WRITE_MASTER_UART2_SPAN 32
+#define DMA_0_WRITE_MASTER_UART2_STOP_BITS 1
+#define DMA_0_WRITE_MASTER_UART2_SYNC_REG_DEPTH 2
+#define DMA_0_WRITE_MASTER_UART2_TYPE "altera_avalon_uart"
+#define DMA_0_WRITE_MASTER_UART2_USE_CTS_RTS 0
+#define DMA_0_WRITE_MASTER_UART2_USE_EOP_REGISTER 0
+
+
+/*
  * uart3 configuration
  *
  */
 
 #define ALT_MODULE_CLASS_uart3 altera_avalon_uart
-#define UART3_BASE 0x1004040
+#define UART3_BASE 0x1004060
 #define UART3_BAUD 115200
 #define UART3_DATA_BITS 8
 #define UART3_FIXED_BAUD 1

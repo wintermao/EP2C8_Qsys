@@ -1,9 +1,9 @@
 # memory.gdb - GDB memory region definitions
 #
 # Machine generated for CPU 'nios2' in SOPC Builder design 'nios2'
-# SOPC Builder design path: D:/altera/project/EP2C8_Qsys/nios2.sopcinfo
+# SOPC Builder design path: E:/altera/13.0/project/EP2C8_RX_Qsys/nios2.sopcinfo
 #
-# Generated: Thu Feb 08 09:51:52 CST 2018
+# Generated: Mon Mar 12 20:48:42 CST 2018
 
 # DO NOT MODIFY THIS FILE
 #

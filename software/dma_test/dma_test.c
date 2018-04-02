@@ -35,10 +35,10 @@ int main()
   alt_dma_rxchan rxchan;
   //DDR2_BASE
   base_source=SDRAM_BASE;
-  base_dest=SDRAM_BASE;
+  base_dest=ONCHIP_RAM_BASE;
   offset_source=0x100000;
-  offset_dest=0x200000;
-  size_byte=0x10000;
+  offset_dest=0x00000;
+  size_byte=0x1000;
 
   ddr_dword1=base_source+offset_source;
   ddr_dword2=base_dest+offset_dest;
@@ -46,6 +46,8 @@ int main()
 	{
 	  *ddr_dword1=i;
 	  ddr_dword1++;
+	  *ddr_dword2=0;
+	  ddr_dword2++;
 	}
   timestamp_freq=alt_timestamp_freq();
   printf("system freq= %ld Hz\n", timestamp_freq);
@@ -53,23 +55,26 @@ int main()
 
 	 //-----------------------------------------------------------
 	 //打开发送通道
-	 if ((txchan = alt_dma_txchan_open("/dev/dma_0")) == NULL)
+	 if ((txchan = alt_dma_txchan_open(DMA_0_NAME)) == NULL)
 	 {
-		 printf ("Failed to open transmit channel /dev/dma_0\n");
+		 printf ("Failed to open transmit channel %s\n",DMA_0_NAME);
 		 exit (1);
 	 }
 	 else
 		 printf("打开发送通道.\n");
 	 //打开接收通道
-	if ((rxchan = alt_dma_rxchan_open("/dev/dma_0")) == NULL)
+	if ((rxchan = alt_dma_rxchan_open(DMA_0_NAME)) == NULL)
 	{
-	  printf ("Failed to open receive channel /dev/dma_0\n");
+	  printf ("Failed to open receive channel %s\n",DMA_0_NAME);
 	  exit (1);
 	}
 	else
 	  printf("打开接收通道.\n");
 	//start send
      ddr_dword1=base_source+offset_source;
+     alt_dma_txchan_ioctl(    txchan,
+                                     ALT_DMA_SET_MODE_16 ,
+                                     NULL);
      if (alt_dma_txchan_send(    txchan,
     		 	 	 	 	 	 ddr_dword1,
     		 	 	 	 	 	 size_byte,
@@ -110,6 +115,7 @@ int main()
      //-----------------------------------------------------------
      //关闭DMA接收信道
      alt_dma_txchan_close(txchan);
+     alt_dma_rxchan_close(rxchan);
 
 
      return 0;

@@ -177,7 +177,7 @@ CRT0 :=
 SYS_LIB :=
 
 # Define path to the root of the BSP.
-BSP_ROOT_DIR := D:\altera\project\EP2C8_Qsys\software\EP2C8_Qsys_bsp
+BSP_ROOT_DIR := ..\EP2C8_Qsys_bsp
 
 # List of application specific include directories, library directories and library names
 APP_INCLUDE_DIRS :=
