@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>2018-4-2 7:50:26</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1522626626733</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>2018-4-3 6:43:13</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1522708993900</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>E:\altera\13.0\project\EP2C8_RX_Qsys\software\EP2C8_Qsys_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>E:\altera\13.0\project\EP2C8_RX_Qsys\nios2.sopcinfo</SopcDesignFile>
@@ -917,7 +917,7 @@
                 <attributes>flash, memory, non-volatile</attributes>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>dma_0</slaveDescriptor>
+                <slaveDescriptor>sdram_master_0</slaveDescriptor>
                 <addressRange>0x01004000 - 0x0100401F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes/>
