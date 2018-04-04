@@ -19,19 +19,19 @@ static void done (void* handle)
 
 int main()
 {
-    //串口输出目标地址空间的数据
-    int i;
-    for(i = 0; i < CHAR_LENGTH; i++)
-    {
-       *(chr + i) = i;
-    }
 
+    int i;
     //创建DMA接收信道
     alt_dma_txchan txchan;
     //源地址
     void* source_buff_ptr = (void*) ONCHIP_RAM_BASE;
     //目标地址UART_BASE+2，因为UART的txdata寄存器在rxdata之后，偏移量为一个rxdata的长度（16位，2个字节）
-    void* destination_buff_ptr = (void*)(UART2_BASE + 2);
+    void* destination_buff_ptr = (void*)(UART2_BASE + 4);
+
+    for(i = 0; i < CHAR_LENGTH; i++)
+    {
+       *((alt_u8 *)source_buff_ptr + i) = i;
+    }
 
     //-----------------------------------------------------------
     /* 打开发送通道 */
@@ -85,9 +85,13 @@ int main()
     /* 等待发送结束 */
     while (!tx_done);
     printf ("Transfer successful!\n");
+    for(i = 0; i < 10; i++)
+       {
+         printf("0x%02x ",*((alt_u8 *)source_buff_ptr + i));
+       }
 
     //-----------------------------------------------------------
-    //关闭DMA接收信道
+    //close dma transmit channel
     alt_dma_txchan_close(txchan);
 
 

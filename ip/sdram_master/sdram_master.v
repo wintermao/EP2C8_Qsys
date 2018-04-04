@@ -66,7 +66,8 @@ reg	[31:0]	S_addr;//source address
 reg	[31:0]	D_addr;//destination  address
 reg	[31:0]	Longth;
 
-reg	Status;
+reg [31:0]	Control;
+reg	[31:0]	Status;
 
 //reg 	[31:0] 	DMA_DATA;
 reg 	[15:0] 	DMA_DATA;
@@ -89,6 +90,7 @@ begin
 			S_addr 		<= 32'h0;	
 			D_addr 		<= 32'h0;	
 			Longth 		<= 32'h0;
+			Control		<= 32'h0;
 		end
 		else 	begin
 			if((avs_s1_chipselect==1'b1) && (avs_s1_write==1'b1)) begin
@@ -96,6 +98,7 @@ begin
 					`S_ADDR:			S_addr 		<= avs_s1_writedata;
 					`D_ADDR:			D_addr 		<= avs_s1_writedata;
 					`LONGTH:			Longth 		<= avs_s1_writedata;
+					`CONTROL:			Control		<= avs_s1_writedata;
 				endcase
 			end
 			else	begin
@@ -104,7 +107,8 @@ begin
 						`S_ADDR:			avs_s1_readdata <= S_addr;
 						`D_ADDR:			avs_s1_readdata <= D_addr;
 						`LONGTH:			avs_s1_readdata <= Longth;
-						`STATUS_ADDR:	avs_s1_readdata <= {31'h0,Status};
+						`CONTROL:			avs_s1_readdata <= Control;
+						`STATUS_ADDR:	avs_s1_readdata <= Status;
 						default: 			avs_s1_readdata <= 32'h0;
 					endcase
 				end
@@ -138,15 +142,15 @@ always@(posedge clk)
 begin
 	if(reset)
 	begin
-		Status <= 1'b0;
+		Status[0] <= 1'b0;
 	end
 	else 	if((avs_s1_chipselect==1'b1) &  (avs_s1_write==1'b1)  & (avs_s1_address == `START_ADDR) )	
 			begin
-				Status <= 1'b0;
+				Status[0] <= 1'b0;
 			end
 			else 	if( (done_last == 1'b0 )&( done == 1'b1) )
 					begin
-						Status <= 1'b1;
+						Status[0] <= 1'b1;
 					end
 end
 
@@ -177,7 +181,8 @@ begin
 					DMA_state 		<= READ;
 			end
 			READ: begin
-				avm_read_address <= S_addr + DMA_Cont;
+				if(Control[0]==0)	avm_read_address <= S_addr + DMA_Cont;
+				else avm_read_address <= S_addr;
 				//avm_read_byteenable <= 4'b0001; 
 				avm_read_read <= 1'b1;
 				DMA_state	<= WAIT_READ;
@@ -191,7 +196,8 @@ begin
 				end
 			end
 			WRITE: begin
-				avm_write_address <= D_addr + DMA_Cont;
+				if(Control[1]==0) avm_write_address <= D_addr + DMA_Cont;
+				else avm_write_address <= D_addr;
 				//avm_write_byteenable <= 4'b0001;
 				avm_write_write <= 1'b1;
 				avm_write_writedata <= DMA_DATA;
