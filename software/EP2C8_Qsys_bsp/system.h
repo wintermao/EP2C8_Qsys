@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2' in SOPC Builder design 'nios2'
  * SOPC Builder design path: E:/altera/13.0/project/EP2C8_RX_Qsys/nios2.sopcinfo
  *
- * Generated: Wed Apr 04 07:29:02 CST 2018
+ * Generated: Thu Apr 05 17:42:44 CST 2018
  */
 
 /*
@@ -461,8 +461,8 @@
 
 #define ALT_MODULE_CLASS_sdram_master_0 sdram_master
 #define SDRAM_MASTER_0_BASE 0x1004020
-#define SDRAM_MASTER_0_IRQ -1
-#define SDRAM_MASTER_0_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SDRAM_MASTER_0_IRQ 10
+#define SDRAM_MASTER_0_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define SDRAM_MASTER_0_NAME "/dev/sdram_master_0"
 #define SDRAM_MASTER_0_SPAN 32
 #define SDRAM_MASTER_0_TYPE "sdram_master"
@@ -480,7 +480,7 @@
 #define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_NAME "/dev/sysid"
 #define SYSID_SPAN 8
-#define SYSID_TIMESTAMP 1522798070
+#define SYSID_TIMESTAMP 1522921293
 #define SYSID_TYPE "altera_avalon_sysid_qsys"
 
 

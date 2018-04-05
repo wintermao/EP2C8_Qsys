@@ -18,6 +18,7 @@ module sdram_master(
 	avs_s1_writedata,
 	avs_s1_byteenable,
 	avs_s1_waitrequest,
+	avs_s1_irq,
 
 	// read master port interface
 	avm_read_address,
@@ -45,6 +46,7 @@ input 	avs_s1_write;
 input 	[31:0] 	avs_s1_writedata;
 input 	[3:0] 	avs_s1_byteenable;
 output	avs_s1_waitrequest;
+output	reg avs_s1_irq;
 
 	// read master port interface
 output	reg	[31:0]	avm_read_address;
@@ -227,4 +229,21 @@ begin
 		endcase
 	end
 end
+
+always@(posedge clk)
+begin
+	if(reset)
+	begin
+		avs_s1_irq <= 1'b0;
+	end
+	else 	if((avs_s1_chipselect==1'b1) &  (avs_s1_write==1'b1)  & (avs_s1_address == `STATUS_ADDR) )	
+			begin
+				avs_s1_irq <= 1'b0;
+			end
+			else 	if( (done_last == 1'b0 )&( done == 1'b1) )
+					begin
+						avs_s1_irq <= 1'b1;
+					end
+end
+
 endmodule
