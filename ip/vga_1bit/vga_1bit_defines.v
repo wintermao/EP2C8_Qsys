@@ -14,3 +14,16 @@
 `define	WAIT_WRITE			4
 `define	CALC_NEXT				5
 `define	DMA_DONE				6
+//vga timing
+`define BRIGHTNESS 	3			// brightness level
+`define BLACK		0					//black level
+`define HDisplay	800			//horizontal active
+`define VDisplay	600			//vertical active
+`define HTotal		1056		//HTotal
+`define VTotal		628			//VTotal
+`define HSYNC_WITH	128		//hsync width
+`define HSYNC_FRONT	40		//hsync front porch
+`define HSYNC_BACK	88		//hsync back porch
+`define VSYNC_WITH	4			//vsync width
+`define VSYNC_FRONT	1			//vsync front porch
+`define VSYNC_BACK	23		//vsync back porch
