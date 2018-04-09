@@ -35,16 +35,16 @@ input 	reset;
 input 	avs_s1_chipselect;
 input 	[2:0] 	avs_s1_address;
 input 	avs_s1_read;
-output 	reg [31:0] 	avs_s1_readdata;
+output 	[31:0] 	avs_s1_readdata;
 input 	avs_s1_write;
 input 	[31:0] 	avs_s1_writedata;
 input 	[3:0] 	avs_s1_byteenable;
 output	avs_s1_waitrequest;
-output	reg avs_s1_irq;
+output	avs_s1_irq;
 
 	// read master port interface
-output	reg	[31:0]	avm_read_address;
-output	reg	avm_read_read;
+output	[31:0]	avm_read_address;
+output	avm_read_read;
 input	[15:0]	avm_read_readdata;
 input	avm_read_waitrequest;
 

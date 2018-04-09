@@ -31,7 +31,7 @@ begin
 		pixel_counter<=0;
 	end
 	else begin
-		if(pixel_counter<15)	pixel_counter<=pixel_counter+1;
+		if(pixel_counter<15)	pixel_counter<=pixel_counter+1'h1;
 		else pixel_counter<=0;
 	end
 end
@@ -51,10 +51,10 @@ begin
 			fifo_q<=fifo_read_data;
 		end else
 			read_request<=0;
-		end
 	end
 end
-assign fifo_read_read = DE? read_request : 0;
+
+assign fifo_read_read = DE? read_request : 1'h0;
 
 //fifo read
 always @(posedge vga_clk or posedge reset)					
@@ -149,8 +149,8 @@ end
 assign Hs=~Hs_reg;						//hsync out
 assign Vs=~Vs_reg;						//vsync out
 assign DE=~(Blank_H | Blank_V);		//DE out
-assign R=DE?R_reg:0;					//r out
-assign G=DE?G_reg:0;					//g out
-assign B=DE?B_reg:0;					//b out
+assign R=DE?R_reg:2'h0;					//r out
+assign G=DE?G_reg:2'h0;					//g out
+assign B=DE?B_reg:2'h0;					//b out
 endmodule
 

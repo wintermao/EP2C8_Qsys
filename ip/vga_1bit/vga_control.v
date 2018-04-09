@@ -47,7 +47,7 @@ reg	[15:0]	fifo_write_writedata;
 wire	fifo_write_waitrequest;
 wire [11:0] fifo_wruserdw;
 
-reg	[15:0]	S_addr;//source address
+reg	[31:0]	S_addr;//source address
 reg	[15:0]	Longth;
 
 reg [7:0]	Control;
@@ -136,41 +136,41 @@ reg [15:0]	DMA_Cont;
 always@(posedge clk)
 begin
 	if(reset) begin
-		DMA_state<= DMA_IDLE;
+		DMA_state<= `DMA_IDLE;
 		DMA_Cont	<= 16'h0;
 	end
 	else begin
 		case(DMA_state)
-			DMA_IDLE: begin
+			`DMA_IDLE: begin
 				DMA_Cont <= 16'h0;
 				done 	<= 1'b0;
 				if(start) 
-					DMA_state 	<= READ;
+					DMA_state 	<= `READ;
 			end
-			READ: begin
+			`READ: begin
 				if(Control[0]==0)	avm_read_address <= S_addr + DMA_Cont;
 				else avm_read_address <= S_addr;
 				avm_read_read <= 1'b1;
-				DMA_state	<= WAIT_READ;
+				DMA_state	<= `WAIT_READ;
 			end
-			WAIT_READ: begin
+			`WAIT_READ: begin
 				if(avm_read_waitrequest == 1'b0 )
 				begin
 					avm_read_read <= 1'b0;
 					DMA_DATA <= avm_read_readdata;
-					DMA_Cont <= DMA_Cont + 32'h2;
+					DMA_Cont <= DMA_Cont + 16'h2;
 					if(DMA_Cont < Longth)
-						DMA_state <= READ;
+						DMA_state <= `READ;
 					else
-						DMA_state <= DMA_DONE;
+						DMA_state <= `DMA_DONE;
 				end
 			end
-			DMA_DONE: begin
+			`DMA_DONE: begin
 				done <= 1'b1;
-				DMA_state <= DMA_IDLE;
+				DMA_state <= `DMA_IDLE;
 			end
 			default: begin
-				DMA_state <= DMA_IDLE;
+				DMA_state <= `DMA_IDLE;
 			end			
 		endcase
 	end
