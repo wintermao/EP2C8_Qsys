@@ -20,7 +20,13 @@ module vga_control(
 	avm_read_address,
 	avm_read_read,
 	avm_read_readdata,
-	avm_read_waitrequest
+	avm_read_waitrequest,
+	
+	// write fifo interface
+	fifo_write_write,
+	fifo_write_writedata,
+	fifo_write_waitrequest,
+	fifo_wruserdw
 	);	
 	
 input	clk;
@@ -42,10 +48,10 @@ input	[15:0]	avm_read_readdata;
 input	avm_read_waitrequest;
 
 	// write fifo interface
-reg	fifo_write_write;
-reg	[15:0]	fifo_write_writedata;
-wire	fifo_write_waitrequest;
-wire [11:0] fifo_wruserdw;
+output reg fifo_write_write;
+output reg [15:0]	fifo_write_writedata;
+input	fifo_write_waitrequest;
+input [11:0] fifo_wruserdw;
 
 reg	[31:0]	S_addr;//source address
 reg	[15:0]	Longth;
@@ -138,6 +144,8 @@ begin
 	if(reset) begin
 		DMA_state<= `DMA_IDLE;
 		DMA_Cont	<= 16'h0;
+		fifo_write_write <= 1'h0;
+		fifo_write_writedata <= 16'h0;
 	end
 	else begin
 		case(DMA_state)
@@ -158,7 +166,19 @@ begin
 				begin
 					avm_read_read <= 1'b0;
 					DMA_DATA <= avm_read_readdata;
+					DMA_state <= `WRITE;
+				end
+			end
+			`WRITE: begin
+				fifo_write_write <= 1;
+				fifo_write_writedata <= DMA_DATA;
+				DMA_state <= `WAIT_WRITE;
+			end
+			`WAIT_WRITE: begin
+				if(fifo_write_waitrequest == 1'b0 )
+				begin
 					DMA_Cont <= DMA_Cont + 16'h2;
+					fifo_write_write <= 0;
 					if(DMA_Cont < Longth)
 						DMA_state <= `READ;
 					else
