@@ -53,8 +53,8 @@ output Hs,Vs;
 output [1:0] R,G,B;
 	
 	// write fifo interface
-reg	fifo_write_write;
-reg	[15:0]	fifo_write_writedata;
+wire	fifo_write_write1;
+wire	[15:0]	fifo_write_writedata;
 wire	fifo_write_waitrequest;
 wire [11:0] fifo_wruserdw;
 
@@ -83,7 +83,13 @@ vga_control vga_control_component(
 	.avm_read_address(avm_read_address),
 	.avm_read_read(avm_read_read),
 	.avm_read_readdata(avm_read_readdata),
-	.avm_read_waitrequest(avm_read_waitrequest)
+	.avm_read_waitrequest(avm_read_waitrequest),
+	
+	// write fifo interface
+	.fifo_write_write(fifo_write_write1),
+	.fifo_write_writedata(fifo_write_writedata),
+	.fifo_write_waitrequest(fifo_write_waitrequest),
+	.fifo_wruserdw(fifo_wruserdw)
 );
 
 
@@ -93,7 +99,7 @@ vga_control vga_control_component(
 				.rdreq (fifo_read_read),
 				.aclr (reset),
 				.rdclk (vga_clk),
-				.wrreq (fifo_write_write),
+				.wrreq (fifo_write_write1),
 				.data (fifo_write_writedata),
 				.rdempty (),
 				.wrusedw (fifo_wruserdw),
