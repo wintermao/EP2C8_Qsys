@@ -20,7 +20,9 @@ int main()
   alt_u64 *ddr_ddword1,*ddr_ddword2;
   alt_u32 i,timestamp_freq;
   alt_u32 offset_source,offset_dest,base_source,base_dest,size_byte;
-
+  FILE *fp;
+  fp=fopen("output.txt","w");
+  fprintf(fp,"hello\r\n");
   //ddr test bank
   base_source=SDRAM_BASE;
   base_dest=SDRAM_BASE;
@@ -106,5 +108,6 @@ int main()
 	t1 = alt_timestamp();                 // ≤‚¡ø ±º‰¥¡1
 	dt=t1-t0;
 	printf("ddword mode : t0=%ld t1=%ld dt=%ld time=%fs\n", t0,t1,dt,(double)dt/timestamp_freq);
+	fclose(fp);
   return 0;
 }

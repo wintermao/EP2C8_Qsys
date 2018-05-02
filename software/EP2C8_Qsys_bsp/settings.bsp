@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>2018-4-5 17:42:41</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1522921361664</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>2018-5-1 11:33:43</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1525145623152</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>E:\altera\13.0\project\EP2C8_RX_Qsys\software\EP2C8_Qsys_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>E:\altera\13.0\project\EP2C8_RX_Qsys\nios2.sopcinfo</SopcDesignFile>
@@ -839,6 +839,18 @@
                 <Group>none</Group>
         </Setting>
         <Setting>
+                <SettingName>altera_hostfs.hostfs_name</SettingName>
+                <Identifier>ALTERA_HOSTFS_NAME</Identifier>
+                <Type>QuotedString</Type>
+                <Value>/mnt/host</Value>
+                <DefaultValue>/mnt/host</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Mount point</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
                 <SettingName>oc_i2c_master_driver.enable_small_driver</SettingName>
                 <Identifier>OC_I2C_MASTER_SMALL</Identifier>
                 <Type>BooleanDefineOnly</Type>
@@ -1018,4 +1030,8 @@
                 <sectionName>.stack</sectionName>
                 <regionName>sdram</regionName>
         </LinkerSection>
+        <SoftwarePackageInfo>
+                <name>altera_hostfs</name>
+                <version>default</version>
+        </SoftwarePackageInfo>
 </sch:Settings>

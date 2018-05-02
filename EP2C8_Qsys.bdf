@@ -304,7 +304,7 @@ applicable agreement for further details.
 	(output)
 	(rect 152 584 328 600)
 	(text "OUTPUT" (rect 137 0 175 10)(font "Arial" (font_size 6)))
-	(text "LED[4..0]" (rect 5 0 53 12)(font "Arial" ))
+	(text "LED[4..0]" (rect 5 0 52 12)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 176 8)(pt 124 8))
@@ -341,7 +341,7 @@ applicable agreement for further details.
 	(bidir)
 	(rect 152 680 328 696)
 	(text "BIDIR" (rect 151 0 175 10)(font "Arial" (font_size 6)))
-	(text "SDA_MASTER" (rect 5 0 77 12)(font "Arial" ))
+	(text "SDA_MASTER" (rect 5 0 76 12)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 120 4)(pt 98 4))
@@ -360,7 +360,7 @@ applicable agreement for further details.
 	(bidir)
 	(rect 152 664 328 680)
 	(text "BIDIR" (rect 151 0 175 10)(font "Arial" (font_size 6)))
-	(text "SCL_MASTER" (rect 5 0 76 12)(font "Arial" ))
+	(text "SCL_MASTER" (rect 5 0 75 12)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 120 4)(pt 98 4))
