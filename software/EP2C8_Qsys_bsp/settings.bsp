@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>2018-5-1 11:33:43</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1525145623152</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>2018-5-19 22:45:38</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1526741138252</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>E:\altera\13.0\project\EP2C8_RX_Qsys\software\EP2C8_Qsys_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>E:\altera\13.0\project\EP2C8_RX_Qsys\nios2.sopcinfo</SopcDesignFile>
@@ -839,6 +839,42 @@
                 <Group>none</Group>
         </Setting>
         <Setting>
+                <SettingName>altera_ro_zipfs.ro_zipfs_name</SettingName>
+                <Identifier>ALTERA_RO_ZIPFS_NAME</Identifier>
+                <Type>QuotedString</Type>
+                <Value>/mnt/rozipfs</Value>
+                <DefaultValue>/mnt/rozipfs</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Mount point</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>altera_ro_zipfs.ro_zipfs_offset</SettingName>
+                <Identifier>ALTERA_RO_ZIPFS_OFFSET</Identifier>
+                <Type>HexNumber</Type>
+                <Value>0x40000</Value>
+                <DefaultValue>0x100000</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Offset of file system from base of flash</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>altera_ro_zipfs.ro_zipfs_base</SettingName>
+                <Identifier>ALTERA_RO_ZIPFS_BASE</Identifier>
+                <Type>HexNumber</Type>
+                <Value>0x1003000</Value>
+                <DefaultValue>0x0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Base address of flash memory device</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
                 <SettingName>altera_hostfs.hostfs_name</SettingName>
                 <Identifier>ALTERA_HOSTFS_NAME</Identifier>
                 <Type>QuotedString</Type>
@@ -935,74 +971,68 @@
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>sdram_master_0</slaveDescriptor>
+                <slaveDescriptor>oc_i2c_master_0</slaveDescriptor>
                 <addressRange>0x01004020 - 0x0100403F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>oc_i2c_master_0</slaveDescriptor>
+                <slaveDescriptor>pio_led</slaveDescriptor>
                 <addressRange>0x01004040 - 0x0100405F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pio_led</slaveDescriptor>
-                <addressRange>0x01004060 - 0x0100407F</addressRange>
-                <addressSpan>32</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
                 <slaveDescriptor>uart3</slaveDescriptor>
-                <addressRange>0x01004080 - 0x0100409F</addressRange>
+                <addressRange>0x01004060 - 0x0100407F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>uart2</slaveDescriptor>
-                <addressRange>0x010040A0 - 0x010040BF</addressRange>
+                <addressRange>0x01004080 - 0x0100409F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>uart1</slaveDescriptor>
-                <addressRange>0x010040C0 - 0x010040DF</addressRange>
+                <addressRange>0x010040A0 - 0x010040BF</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>timestamp</slaveDescriptor>
-                <addressRange>0x010040E0 - 0x010040FF</addressRange>
+                <addressRange>0x010040C0 - 0x010040DF</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>timer</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>systimer</slaveDescriptor>
-                <addressRange>0x01004100 - 0x0100411F</addressRange>
+                <addressRange>0x010040E0 - 0x010040FF</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>timer</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>pio_key</slaveDescriptor>
-                <addressRange>0x01004120 - 0x0100412F</addressRange>
+                <addressRange>0x01004100 - 0x0100410F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>altpll</slaveDescriptor>
-                <addressRange>0x01004130 - 0x0100413F</addressRange>
+                <addressRange>0x01004110 - 0x0100411F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart</slaveDescriptor>
-                <addressRange>0x01004140 - 0x01004147</addressRange>
+                <addressRange>0x01004120 - 0x01004127</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sysid</slaveDescriptor>
-                <addressRange>0x01004148 - 0x0100414F</addressRange>
+                <addressRange>0x01004128 - 0x0100412F</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
@@ -1030,6 +1060,10 @@
                 <sectionName>.stack</sectionName>
                 <regionName>sdram</regionName>
         </LinkerSection>
+        <SoftwarePackageInfo>
+                <name>altera_ro_zipfs</name>
+                <version>default</version>
+        </SoftwarePackageInfo>
         <SoftwarePackageInfo>
                 <name>altera_hostfs</name>
                 <version>default</version>
