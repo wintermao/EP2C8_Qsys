@@ -43,18 +43,17 @@ begin
 		data <= 16'h0;
 		asi_in0_ready<=1'b1;
 	end	else begin
-		if(asi_in0_valid==1'b1) begin
-			DMA_Cont <= DMA_Cont + 1'b1;
-			if(DMA_Cont>16'd10 && DMA_Cont<16'd15) begin
-				asi_in0_ready<=1'b0;
-			end else begin 
-				asi_in0_ready<=1'b1;
-				data <= asi_in0_data;
-			end
+		if(DMA_Cont<16'd40) DMA_Cont <= DMA_Cont + 1'b1;
+		else DMA_Cont<=0;
+		if(DMA_Cont>16'd10 && DMA_Cont<16'd15) begin
+			asi_in0_ready<=1'b0;
+		end else begin 
+			asi_in0_ready<=1'b1;
+		end
+		if(asi_in0_valid==1'b1 && asi_in0_ready==1'b1 ) begin
+			data <= asi_in0_data;
 		end else begin
 			data <= data;
-			asi_in0_ready <= asi_in0_ready;
-			DMA_Cont <= DMA_Cont;
 		end
 	end
 end
